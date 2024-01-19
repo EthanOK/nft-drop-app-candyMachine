@@ -1,6 +1,9 @@
 # Solana NFT Drop Project (adapted from Buildspace)
 
 ```
+
+candyMachine V2
+
 https://docs.metaplex.com/developer-tools/sugar/overview/installation
 
 sugar --version

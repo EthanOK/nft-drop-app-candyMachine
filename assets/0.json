@@ -1,14 +1,21 @@
 {
-	"name": "Ambi",
-	"symbol": "AMB",
-	"image": "0.png",
-	"properties": {
-		"files": [{ "url": "0.png", "type": "image/png" }],
-		"creators": [
-			{
-				"address": "BqEgPTcDX1upXSee8DFhSgNmX5Mn72krsYVpfoKZPzEi",
-				"share": 100
-			}
-		]
-	}
+  "name": "Ambi",
+  "symbol": "AMB",
+  "description": "This a Face!",
+  "image": "0.png",
+  "attributes": [
+    {
+      "trait_type": "Number",
+      "value": "0"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "0.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
 }

@@ -8,6 +8,19 @@ https://docs.metaplex.com/developer-tools/sugar/overview/installation
 
 sugar --version
 sugar-cli 1.2.2
+
+# cli
+sugar validate
+
+sugar upload
+
+sugar deploy
+
+sugar verify
+
+https://www.solaneyes.com/address/FWFqeqRm3eaGL9Rhs2JHJZXqk79qTzj8c8asuAFwN1Xt?cluster=devnet
+
+
 ```
 
 ### Welcome 👋

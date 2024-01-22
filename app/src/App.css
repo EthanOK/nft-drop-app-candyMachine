@@ -70,6 +70,12 @@
   animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
 }
+.no-mint-button {
+  background: #e91515;
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  margin-left: 10px;
+}
 
 .footer-container {
   display: flex;

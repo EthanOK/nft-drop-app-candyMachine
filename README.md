@@ -18,7 +18,7 @@ sugar deploy
 
 sugar verify
 
-https://www.solaneyes.com/address/FWFqeqRm3eaGL9Rhs2JHJZXqk79qTzj8c8asuAFwN1Xt?cluster=devnet
+https://www.solaneyes.com/address/gNoRoDQTLwsyB3CJnDps3kN7Qzhm2RML7rsnr1EVfBq?cluster=devnet
 
 
 ```

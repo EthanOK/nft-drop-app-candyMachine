@@ -1,0 +1,45 @@
+{
+  "name": "YGME #67",
+  "symbol": "YGME",
+  "description": "YGME is a community member pass issued by YunGou.IO, with a limited edition of 30,000 sets, holding YGME to enjoy various rights and interests in the platform. YGME programmers of real world trends, new creators of 'Changing World'.",
+  "image": "66.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "B (9)"
+    },
+    {
+      "trait_type": "Object",
+      "value": "O (30)"
+    },
+    {
+      "trait_type": "Clothing",
+      "value": "C (1)"
+    },
+    {
+      "trait_type": "Face",
+      "value": "F (7)"
+    },
+    {
+      "trait_type": "Hairstyle",
+      "value": "H (33)"
+    },
+    {
+      "trait_type": "Desktop",
+      "value": "D (1)"
+    },
+    {
+      "trait_type": "Imagination",
+      "value": "I (6)"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "66.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

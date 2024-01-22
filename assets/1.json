@@ -1,12 +1,32 @@
 {
-  "name": "Ambi",
-  "symbol": "AMB",
-  "description": "This a Face!",
+  "name": "YGME #2",
+  "symbol": "YGME",
+  "description": "YGME is a community member pass issued by YunGou.IO, with a limited edition of 30,000 sets, holding YGME to enjoy various rights and interests in the platform. YGME programmers of real world trends, new creators of 'Changing World'.",
   "image": "1.png",
   "attributes": [
     {
-      "trait_type": "Number",
-      "value": "1"
+      "trait_type": "Background",
+      "value": "B (1)"
+    },
+    {
+      "trait_type": "Object",
+      "value": "O (11)"
+    },
+    {
+      "trait_type": "Clothing",
+      "value": "C (20)"
+    },
+    {
+      "trait_type": "Head",
+      "value": "H (5)"
+    },
+    {
+      "trait_type": "Desktop",
+      "value": "D (2)"
+    },
+    {
+      "trait_type": "Imagination",
+      "value": "I (6)"
     }
   ],
   "properties": {

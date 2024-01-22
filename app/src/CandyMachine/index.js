@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Connection, PublicKey } from "@solana/web3.js";
+import { Connection, PublicKey, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { Program, Provider, web3 } from "@project-serum/anchor";
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { sendTransactions } from "./connection";
@@ -22,6 +22,8 @@ const opts = {
 
 const CandyMachine = ({ walletAddress }) => {
   const [candyMachine, setCandyMachine] = useState(null);
+
+  const [startMintTime, setStartMintTime] = useState(null);
   useEffect(() => {
     getCandyMachineState();
   }, []);
@@ -83,6 +85,10 @@ const CandyMachine = ({ walletAddress }) => {
         authority: candyMachine.authority,
       },
     });
+
+    setStartMintTime(
+      new Date(candyMachine.data.goLiveDate.toNumber() * 1000).toLocaleString()
+    );
 
     console.log({
       itemsAvailable,
@@ -198,6 +204,7 @@ const CandyMachine = ({ walletAddress }) => {
   };
 
   const mintToken = async () => {
+    console.log("candyMachine:", candyMachine);
     const mint = web3.Keypair.generate();
 
     console.log("mint:", mint.publicKey.toString());
@@ -479,21 +486,35 @@ const CandyMachine = ({ walletAddress }) => {
     return [];
   };
 
+  const mintTokenButton = () => {
+    return (
+      <button
+        className="cta-button mint-button"
+        onClick={() =>
+          mintToken().then(() =>
+            alert("Your NFT has been minted! Check your Phantom wallet")
+          )
+        }
+      >
+        Mint NFT
+      </button>
+    );
+  };
+  const noMintTokenButton = () => {
+    return (
+      <button className="cta-button no-mint-button">
+        Mint Start: {startMintTime}
+      </button>
+    );
+  };
+
   return (
     candyMachine && (
       <div className="machine-container">
         <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>
         <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
-        <button
-          className="cta-button mint-button"
-          onClick={() =>
-            mintToken().then(() =>
-              alert("Your NFT has been minted! Check your Phantom wallet")
-            )
-          }
-        >
-          Mint NFT
-        </button>
+        <p>{`Price: ${candyMachine.state.price / LAMPORTS_PER_SOL} SOL`}</p>
+        {candyMachine.state.isActive ? mintTokenButton() : noMintTokenButton()}
       </div>
     )
   );

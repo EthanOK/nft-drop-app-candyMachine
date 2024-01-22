@@ -1,17 +1,17 @@
 {
-  "price": 0.1,
-  "number": 3,
-  "symbol": "AMB",
+  "price": 0.88,
+  "number": 100,
+  "symbol": "YGME",
   "sellerFeeBasisPoints": 500,
   "gatekeeper": null,
   "solTreasuryAccount": "BdLnE5w6vTySRQNDvjhUHVfV4KpnMHgEwmSCGk4mDMAF",
   "splTokenAccount": null,
   "splToken": null,
-  "goLiveDate": "2024-01-19T00:00:00Z",
+  "goLiveDate": "2024-01-22T08:00:00Z",
   "endSettings": null,
   "whitelistMintSettings": null,
   "hiddenSettings": null,
-  "uploadMethod": "bundlr",
+  "uploadMethod": "nft_storage",
   "awsS3Bucket": null,
   "retainAuthority": true,
   "isMutable": true,
@@ -20,5 +20,6 @@
       "address": "BdLnE5w6vTySRQNDvjhUHVfV4KpnMHgEwmSCGk4mDMAF",
       "share": 100
     }
-  ]
+  ],
+  "nftStorageAuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDk4YjBlRGU5MGYzNTE5RmI5MTU0NGMxNmY4NGQ1REZBRDI4RTFCNjIiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTcwMTM5NTI1Mjk2NSwibmFtZSI6Ill1bkdvdSJ9.Kbu4gvaGIgF2LHVDhKqgR9ek-0R13yiTkp8wxfha7j8"
 }

@@ -22,7 +22,7 @@ const opts = {
 
 const CandyMachine = ({ walletAddress }) => {
   const [candyMachine, setCandyMachine] = useState(null);
-
+  const [txHash, setTxHash] = useState("");
   const [startMintTime, setStartMintTime] = useState(null);
   useEffect(() => {
     getCandyMachineState();
@@ -204,7 +204,19 @@ const CandyMachine = ({ walletAddress }) => {
   };
 
   const mintToken = async () => {
+    const provider = getProvider();
+
+    const solBalance = await provider.connection.getBalance(
+      walletAddress.publicKey
+    );
+
+    if (solBalance < candyMachine.state.price.toNumber()) {
+      alert("Insufficient SOL Balance");
+      return;
+    }
+
     console.log("candyMachine:", candyMachine);
+
     const mint = web3.Keypair.generate();
 
     console.log("mint:", mint.publicKey.toString());
@@ -231,11 +243,6 @@ const CandyMachine = ({ walletAddress }) => {
     const signers = [mint];
     const cleanupInstructions = [];
 
-    console.log(
-      await await candyMachine.program.provider.connection.getMinimumBalanceForRentExemption(
-        MintLayout.span
-      )
-    );
     const instructions = [
       web3.SystemProgram.createAccount({
         fromPubkey: walletAddress.publicKey,
@@ -472,30 +479,25 @@ const CandyMachine = ({ walletAddress }) => {
     }
 
     try {
-      return (
-        await sendTransactions(
-          candyMachine.program.provider.connection,
-          candyMachine.program.provider.wallet,
-          [instructions, cleanupInstructions],
-          [signers, []]
-        )
-      ).txs.map((t) => t.txid);
+      const { txs } = await sendTransactions(
+        candyMachine.program.provider.connection,
+        candyMachine.program.provider.wallet,
+        [instructions, cleanupInstructions],
+        [signers, []]
+      );
+
+      setTxHash(txs[0].txid);
+      return txs;
     } catch (e) {
       console.log(e);
+      alert(e);
     }
     return [];
   };
 
   const mintTokenButton = () => {
     return (
-      <button
-        className="cta-button mint-button"
-        onClick={() =>
-          mintToken().then(() =>
-            alert("Your NFT has been minted! Check your Phantom wallet")
-          )
-        }
-      >
+      <button className="cta-button mint-button" onClick={mintToken}>
         Mint NFT
       </button>
     );
@@ -515,6 +517,7 @@ const CandyMachine = ({ walletAddress }) => {
         <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
         <p>{`Price: ${candyMachine.state.price / LAMPORTS_PER_SOL} SOL`}</p>
         {candyMachine.state.isActive ? mintTokenButton() : noMintTokenButton()}
+        <p>{`TxHash: ${txHash}`}</p>
       </div>
     )
   );
